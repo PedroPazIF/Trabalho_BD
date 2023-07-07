@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(getApplicationContext(), EditarJogosActivity.class);
-        intent.putExtra("produto", adapter.getItem(i));
+        intent.putExtra("jogo", adapter.getItem(i));
         startActivityForResult(intent, REQ_EDIT);
     }
 
