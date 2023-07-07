@@ -6,13 +6,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final String DB_NAME = "produtosdb";
+    public static final String DB_NAME = "jogosdb";
     public static final int DB_VERSION = 1;
 
     private static final String SQL_DROP = "DROP TABLE IF EXISTS " + JogosContract.TABLE_NAME;
     private static final String SQL_CREATE = String.format(
             "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "%s TEXT NOT NULL, %s DOUBLE NOT NULL, ¨%s TEXT NOT NULL)", JogosContract.TABLE_NAME, JogosContract.Columns._ID, JogosContract.Columns.NOME, JogosContract.Columns.NOTA, JogosContract.Columns.SITUACAO);
+                    "%s TEXT NOT NULL, %s DOUBLE NOT NULL, %s TEXT NOT NULL)", JogosContract.TABLE_NAME, JogosContract.Columns._ID, JogosContract.Columns.NOME, JogosContract.Columns.NOTA, JogosContract.Columns.SITUACAO);
 
     private static DBHelper instance;
 
