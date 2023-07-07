@@ -1,6 +1,6 @@
 package com.example.bancodedados.data;
 
-public class ProdutosContract {
+public class JogosContract {
 
     public static final String TABLE_NAME = "produto";
 

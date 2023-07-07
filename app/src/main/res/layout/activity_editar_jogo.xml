@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.EditarProdutoActivity"
+    tools:context=".activity.EditarJogosActivity"
     android:layout_margin="@dimen/margem"
     android:orientation="vertical">
 
@@ -24,11 +24,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="@string/txt_valor"
+        android:text="@string/txt_nota"
         style="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/edt_valor"
+        android:id="@+id/edt_nota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/txt_situacao"
+        style="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/edt_situacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal" />

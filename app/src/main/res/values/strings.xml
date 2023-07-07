@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Banco De Dados</string>
+    <string name="app_name">Trabalho Banco de dados</string>
 
     <string name="action_add">Adicionar</string>
-    <string name="txt_nome">Nome:</string>
-    <string name="txt_valor">Valor:</string>
+    <string name="txt_nome">Nome do jogo:</string>
+    <string name="txt_nota">Sua nota pro jogo:</string>
+    <string name="txt_situacao">Como está o andamento do jogo?</string>
     <string name="btn_cancel">Cancelar</string>
     <string name="btn_ok">OK</string>
 </resources>

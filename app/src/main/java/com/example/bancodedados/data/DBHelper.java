@@ -9,10 +9,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "produtosdb";
     public static final int DB_VERSION = 1;
 
-    private static final String SQL_DROP = "DROP TABLE IF EXISTS " + ProdutosContract.TABLE_NAME;
+    private static final String SQL_DROP = "DROP TABLE IF EXISTS " + JogosContract.TABLE_NAME;
     private static final String SQL_CREATE = String.format(
             "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "%s TEXT NOT NULL, %s DOUBLE NOT NULL)", ProdutosContract.TABLE_NAME, ProdutosContract.Columns._ID, ProdutosContract.Columns.NOME, ProdutosContract.Columns.VALOR);
+                    "%s TEXT NOT NULL, %s DOUBLE NOT NULL)", JogosContract.TABLE_NAME, JogosContract.Columns._ID, JogosContract.Columns.NOME, JogosContract.Columns.VALOR);
 
     private static DBHelper instance;
 

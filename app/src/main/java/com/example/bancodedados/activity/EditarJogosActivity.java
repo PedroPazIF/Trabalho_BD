@@ -9,36 +9,39 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.bancodedados.R;
-import com.example.bancodedados.data.Produto;
-import com.example.bancodedados.data.ProdutoDAO;
+import com.example.bancodedados.data.Jogo;
+import com.example.bancodedados.data.JogoDAO;
 
-public class EditarProdutoActivity extends AppCompatActivity implements View.OnClickListener {
+public class EditarJogosActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edtNome;
-    private EditText edtValor;
+    private EditText edtNota;
+    private EditText edtSituacao;
     private Button btnProcessar;
     private Button btnCancelar;
-    private Produto produto;
-    private ProdutoDAO produtoDAO;
+    private Jogo jogo;
+    private JogoDAO jogoDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar_produto);
+        setContentView(R.layout.activity_editar_jogo);
 
         edtNome = findViewById(R.id.edt_nome);
-        edtValor = findViewById(R.id.edt_valor);
+        edtNota = findViewById(R.id.edt_nota);
+        edtSituacao = findViewById(R.id.edt_situacao);
         btnProcessar = findViewById(R.id.btnProcessar);
         btnCancelar = findViewById(R.id.btnCancelar);
         btnProcessar.setOnClickListener(this);
         btnCancelar.setOnClickListener(this);
 
-        produtoDAO = ProdutoDAO.getInstance(this);
+        jogoDAO = JogoDAO.getInstance(this);
 
-        produto = (Produto) getIntent().getSerializableExtra("produto");
+        jogo = (Jogo) getIntent().getSerializableExtra("produto");
 
-        if (produto != null){
-            edtNome.setText(produto.getNome());
-            edtValor.setText(String.valueOf(produto.getValor()));
+        if (jogo != null){
+            edtNome.setText(jogo.getNome());
+            edtNota.setText(String.valueOf(jogo.getNota()));
+            edtNome.setText(jogo.getSituacao());
         }
 
     }
@@ -47,19 +50,19 @@ public class EditarProdutoActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         if (view.getId() == R.id.btnProcessar){
             String nome = edtNome.getText().toString();
-            double valor = Double.parseDouble(edtValor.getText().toString());
+            double valor = Double.parseDouble(edtNota.getText().toString());
             String msg;
 
-            if (produto == null) {
-                Produto produto = new Produto(nome, valor);
-                produtoDAO.save(produto);
-                msg = "Produto gravado com ID = " + produto.getId();
+            if (jogo == null) {
+                Jogo jogo = new Jogo(nome, valor);
+                jogoDAO.save(jogo);
+                msg = "Produto gravado com ID = " + jogo.getId();
 
             } else {
-                produto.setNome(nome);
-                produto.setValor(valor);
-                produtoDAO.update(produto);
-                msg = "Produto atualizado com ID = " + produto.getId();
+                jogo.setNome(nome);
+                jogo.setValor(valor);
+                jogoDAO.update(jogo);
+                msg = "Produto atualizado com ID = " + jogo.getId();
             }
 
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();

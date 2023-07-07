@@ -13,9 +13,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.bancodedados.R;
-import com.example.bancodedados.adapter.ProdutoAdapter;
-import com.example.bancodedados.data.Produto;
-import com.example.bancodedados.data.ProdutoDAO;
+import com.example.bancodedados.adapter.JogoAdapter;
+import com.example.bancodedados.data.Jogo;
+import com.example.bancodedados.data.JogoDAO;
 import com.example.bancodedados.dialog.DeleteDialog;
 
 import java.util.List;
@@ -23,8 +23,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DeleteDialog.OnDeleteListener {
 
     private ListView lista;
-    private ProdutoAdapter adapter;
-    private ProdutoDAO produtoDAO;
+    private JogoAdapter adapter;
+    private JogoDAO jogoDAO;
     private static final int REQ_EDIT = 100;
 
     @Override
@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         lista = findViewById(R.id.lista);
 
-        adapter = new ProdutoAdapter(this);
+        adapter = new JogoAdapter(this);
 
         lista.setAdapter(adapter);
 
         lista.setOnItemClickListener(this);
         lista.setOnItemLongClickListener(this);
 
-        produtoDAO = ProdutoDAO.getInstance(this);
+        jogoDAO = JogoDAO.getInstance(this);
 
     }
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_add) {
-            Intent intent = new Intent(getApplicationContext(), EditarProdutoActivity.class);
+            Intent intent = new Intent(getApplicationContext(), EditarJogosActivity.class);
             startActivityForResult(intent, REQ_EDIT);
             return true;
         }
@@ -70,30 +70,30 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void updateList() {
-        List<Produto> produtos = produtoDAO.list();
-        adapter.setItems(produtos);
+        List<Jogo> jogos = jogoDAO.list();
+        adapter.setItems(jogos);
     }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Intent intent = new Intent(getApplicationContext(), EditarProdutoActivity.class);
+        Intent intent = new Intent(getApplicationContext(), EditarJogosActivity.class);
         intent.putExtra("produto", adapter.getItem(i));
         startActivityForResult(intent, REQ_EDIT);
     }
 
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Produto produto = adapter.getItem(i);
+        Jogo jogo = adapter.getItem(i);
 
         DeleteDialog dialog = new DeleteDialog();
-        dialog.setProduto(produto);
+        dialog.setJogo(jogo);
         dialog.show(getSupportFragmentManager(), "deleteDialog");
         return true;
     }
 
     @Override
-    public void onDelete(Produto produto) {
-        produtoDAO.delete(produto);
+    public void onDelete(Jogo jogo) {
+        jogoDAO.delete(jogo);
         updateList();
     }
 }

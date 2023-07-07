@@ -2,20 +2,21 @@ package com.example.bancodedados.data;
 
 import java.io.Serializable;
 
-public class Produto implements Serializable {
+public class Jogo implements Serializable {
     private int id;
     private String nome;
-    private double valor;
+    private double nota;
+    private String situacao;
 
-    public Produto(int id, String nome, double valor) {
+    public Jogo(int id, String nome, double nota) {
         this.id = id;
         this.nome = nome;
-        this.valor = valor;
+        this.nota = nota;
     }
 
-    public Produto(String nome, double valor) {
+    public Jogo(String nome, double nota) {
         this.nome = nome;
-        this.valor = valor;
+        this.nota = nota;
     }
 
     public int getId() {
@@ -34,11 +35,11 @@ public class Produto implements Serializable {
         this.nome = nome;
     }
 
-    public double getValor() {
-        return valor;
+    public double getNota() {
+        return nota;
     }
 
     public void setValor(double valor) {
-        this.valor = valor;
+        this.nota = valor;
     }
 }

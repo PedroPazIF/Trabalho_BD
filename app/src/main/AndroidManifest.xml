@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BancoDeDados">
         <activity
-            android:name=".activity.EditarProdutoActivity"
+            android:name=".activity.EditarJogosActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
