@@ -12,7 +12,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String SQL_DROP = "DROP TABLE IF EXISTS " + JogosContract.TABLE_NAME;
     private static final String SQL_CREATE = String.format(
             "CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "%s TEXT NOT NULL, %s DOUBLE NOT NULL)", JogosContract.TABLE_NAME, JogosContract.Columns._ID, JogosContract.Columns.NOME, JogosContract.Columns.NOTA);
+                    "%s TEXT NOT NULL, %s DOUBLE NOT NULL, ¨%s TEXT NOT NULL)", JogosContract.TABLE_NAME, JogosContract.Columns._ID, JogosContract.Columns.NOME, JogosContract.Columns.NOTA, JogosContract.Columns.SITUACAO);
 
     private static DBHelper instance;
 
