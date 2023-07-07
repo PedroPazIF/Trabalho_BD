@@ -44,7 +44,7 @@ public class Jogo implements Serializable {
     public void setValor(double valor) {
         this.nota = valor;
     }
-}
+
 
     public String getSituacao() {
         return situacao;
@@ -54,4 +54,5 @@ public class Jogo implements Serializable {
         this.situacao = situacao;
     }
 }
+
 

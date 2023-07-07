@@ -32,7 +32,8 @@ public class JogoDAO {
         String[] columns = {
                 JogosContract.Columns._ID,
                 JogosContract.Columns.NOME,
-                JogosContract.Columns.VALOR
+                JogosContract.Columns.NOTA,
+                JogosContract.Columns.SITUACAO
         };
 
         List<Jogo> jogos = new ArrayList<>();
@@ -53,14 +54,16 @@ public class JogoDAO {
     private static Jogo fromCursor(Cursor c) {
         @SuppressLint("Range") int id = c.getInt(c.getColumnIndex(JogosContract.Columns._ID));
         @SuppressLint("Range") String nome = c.getString(c.getColumnIndex(JogosContract.Columns.NOME));
-        @SuppressLint("Range") double valor = c.getDouble(c.getColumnIndex(JogosContract.Columns.VALOR));
-        return new Jogo(id, nome, valor);
+        @SuppressLint("Range") double nota = c.getDouble(c.getColumnIndex(JogosContract.Columns.NOTA));
+        @SuppressLint("Range") String situacao = c.getString(c.getColumnIndex(JogosContract.Columns.SITUACAO));
+        return new Jogo(id, nome, nota, situacao);
     }
 
     public void save(Jogo jogo) {
         ContentValues values = new ContentValues();
         values.put(JogosContract.Columns.NOME, jogo.getNome());
-        values.put(JogosContract.Columns.VALOR, jogo.getNota());
+        values.put(JogosContract.Columns.NOTA, jogo.getNota());
+        values.put(JogosContract.Columns.SITUACAO, jogo.getSituacao());
         long id = db.insert(JogosContract.TABLE_NAME, null, values);
         jogo.setId((int) id);
     }
@@ -68,7 +71,8 @@ public class JogoDAO {
     public void update(Jogo jogo) {
         ContentValues values = new ContentValues();
         values.put(JogosContract.Columns.NOME, jogo.getNome());
-        values.put(JogosContract.Columns.VALOR, jogo.getNota());
+        values.put(JogosContract.Columns.NOTA, jogo.getNota());
+        values.put(JogosContract.Columns.SITUACAO, jogo.getSituacao());
         db.update(JogosContract.TABLE_NAME, values, JogosContract.Columns._ID + " = ?", new String[]{ String.valueOf(jogo.getId()) });
     }
 

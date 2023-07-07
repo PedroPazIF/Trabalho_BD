@@ -51,7 +51,7 @@ public class EditarJogosActivity extends AppCompatActivity implements View.OnCli
         if (view.getId() == R.id.btnProcessar){
             String nome = edtNome.getText().toString();
             double valor = Double.parseDouble(edtNota.getText().toString());
-            String situacao = edtSituacao.getText.toString();
+            String situacao = edtSituacao.getText().toString();
             String msg;
 
             if (jogo == null) {
