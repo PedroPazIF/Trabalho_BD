@@ -8,15 +8,17 @@ public class Jogo implements Serializable {
     private double nota;
     private String situacao;
 
-    public Jogo(int id, String nome, double nota) {
+    public Jogo(int id, String nome, double nota, String situacao) {
         this.id = id;
         this.nome = nome;
         this.nota = nota;
+        this.situacao = situacao;
     }
 
-    public Jogo(String nome, double nota) {
+    public Jogo(String nome, double nota, String situacao) {
         this.nome = nome;
         this.nota = nota;
+        this.situacao = situacao;
     }
 
     public int getId() {
@@ -43,3 +45,13 @@ public class Jogo implements Serializable {
         this.nota = valor;
     }
 }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+}
+

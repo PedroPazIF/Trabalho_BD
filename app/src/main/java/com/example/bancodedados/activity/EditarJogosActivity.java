@@ -41,7 +41,7 @@ public class EditarJogosActivity extends AppCompatActivity implements View.OnCli
         if (jogo != null){
             edtNome.setText(jogo.getNome());
             edtNota.setText(String.valueOf(jogo.getNota()));
-            edtNome.setText(jogo.getSituacao());
+            edtSituacao.setText(jogo.getSituacao());
         }
 
     }
@@ -51,16 +51,18 @@ public class EditarJogosActivity extends AppCompatActivity implements View.OnCli
         if (view.getId() == R.id.btnProcessar){
             String nome = edtNome.getText().toString();
             double valor = Double.parseDouble(edtNota.getText().toString());
+            String situacao = edtSituacao.getText.toString();
             String msg;
 
             if (jogo == null) {
-                Jogo jogo = new Jogo(nome, valor);
+                Jogo jogo = new Jogo(nome, valor, situacao);
                 jogoDAO.save(jogo);
                 msg = "Produto gravado com ID = " + jogo.getId();
 
             } else {
                 jogo.setNome(nome);
                 jogo.setValor(valor);
+                jogo.setSituacao(situacao);
                 jogoDAO.update(jogo);
                 msg = "Produto atualizado com ID = " + jogo.getId();
             }

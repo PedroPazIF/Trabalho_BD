@@ -47,6 +47,7 @@ public class JogoAdapter extends BaseAdapter {
         Jogo jogo = jogos.get(i);
         txtNome.setText(jogo.getNome());
         txtNota.setText(Double.toString(jogo.getNota()));
+        txtSituacao.setText(jogo.getSituacao());
 
         return v;
     }
